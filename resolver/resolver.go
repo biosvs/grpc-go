@@ -314,3 +314,11 @@ type Resolver interface {
 	// Close closes the resolver.
 	Close()
 }
+
+// UnregisterForTesting removes the resolver builder with the given scheme from the
+// resolver map.
+// This function is for testing only.
+// deprecated
+func UnregisterForTesting(scheme string) {
+	delete(m, scheme)
+}
