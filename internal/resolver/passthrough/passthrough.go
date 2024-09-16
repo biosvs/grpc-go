@@ -21,8 +21,6 @@
 package passthrough
 
 import (
-	"errors"
-
 	"google.golang.org/grpc/resolver"
 )
 
@@ -31,9 +29,9 @@ const scheme = "passthrough"
 type passthroughBuilder struct{}
 
 func (*passthroughBuilder) Build(target resolver.Target, cc resolver.ClientConn, opts resolver.BuildOptions) (resolver.Resolver, error) {
-	if target.Endpoint() == "" && opts.Dialer == nil {
-		return nil, errors.New("passthrough: received empty target in Build()")
-	}
+	//if target.Endpoint() == "" && opts.Dialer == nil {
+	//	return nil, errors.New("passthrough: received empty target in Build()")
+	//}
 	r := &passthroughResolver{
 		target: target,
 		cc:     cc,
